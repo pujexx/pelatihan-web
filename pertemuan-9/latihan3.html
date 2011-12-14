@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Belajar Jquery</title>
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+	   $(document).ready(function(){
+	     $("#slide").hover(function(){
+			$("#gambar").slideToggle();
+		 });
+		
+		 
+	   });
+	</script>
+	</head>
+
+<body>
+<input type="button" value="Slide" id="slide" />
+
+<img src="danbo12.jpg" id="gambar" />
+</body>
+
+</html>

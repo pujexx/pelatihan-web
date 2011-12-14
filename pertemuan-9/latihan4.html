@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Belajar Jquery</title>
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+	   $(document).ready(function(){
+	    $("#login").click(function(){
+		  
+			username = $("#username").val();
+			password = $("#password").val();
+	$("#hasil").html("Username = "+username+"<br>password = "+password);
+			
+		
+		});
+	   });
+	</script>
+	</head>
+
+<body>
+<p id="hasil">
+</p>
+<p>Username<input type="text" id="username" /></p>
+<p>Password<input type="password" id="password" /></p>
+<p><input type="button" value="login" id="login" /></p>
+</body>
+
+</html>

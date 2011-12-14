@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Belajar Jquery</title>
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+	   $(document).ready(function(){
+	   
+		//untuk mengghilangkan kotak
+	     $("#hilang").click(function(){
+			$("#kotak").hide("slow");
+		 });
+		 //untuk menampilkan kotak
+		 $("#tampil").click(function(){
+		   $("#kotak").show("slow");
+		 });
+		 
+		 
+	   });
+	</script>
+	</head>
+
+<body>
+<input type="button" value="Hilang" id="hilang" />
+<input type="button" value="Tampil" id="tampil" />
+
+<div id="kotak" style="width:200px; height:200px; background:#333;">
+kotak
+</div>
+</body>
+
+</html>

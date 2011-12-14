@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+<title>JSAR Example - JSAR Logo</title>
+<script type="text/javascript" src="../js/swfobject.js"></script>
+<script type="text/javascript" src="../js/jsar.js"></script>
+<script type="text/javascript"><!--
+
+    var jsar;
+    var MARKER_CODE  = [ '../code/jsarlogo.pat' ];
+    var MARKER_TITLE = [ 'JSAR' ];
+
+    function ondetected ( result ) {
+        jsar.clearHTML();
+        if ( ! result.detected ) return;
+
+        var base = jsar.getHTML();
+        for( var i=0; i<result.markers.length; i++ ) {
+            var marker = result.markers[i];
+            var div = document.createElement( 'div' );
+            div.style.fontFamily = 'Impact';
+            div.style.position   = 'absolute';
+
+            div.style.color = marker.getColor();
+
+            var minx = marker.getLeft();
+            var miny = marker.getTop();
+            var maxy = marker.getBottom();
+            var size = Math.floor( (maxy - miny) / 4 );
+            div.style.left     = (minx+size*3)+'px';
+            div.style.top      = (miny+size)+'px';
+            div.style.fontSize = (size*2)+'px';
+
+            var title = MARKER_TITLE[marker.codeid];
+            var txt = document.createTextNode( title );
+            div.appendChild( txt );
+            base.appendChild( div );
+        }
+    }
+
+    function init () {
+        jsar = new JSAR( 'jsar_here' );
+        jsar.drawMarkerRect = true;
+        jsar.onDetected = ondetected;
+        jsar.onLost     = ondetected;
+        jsar.captureX   = 320;
+        jsar.captureY   = 240;
+        jsar.displayX   = 640;
+        jsar.displayY   = 480;
+        jsar.init();
+        jsar.setMarker( MARKER_CODE );
+    }
+
+    window.onload = init;
+
+--></script>
+</head>
+<body>
+
+<div id="jsar_here"></div>
+
+<p>
+Get and print JSAR marker: <a href="../pdf/jsarlogo.pdf">jsarlogo.pdf</a>
+</p>
+
+<p>
+JSARToolKit
+&copy 2009 Yusuke Kawasaki <a href="http://www.kawa.net/">http://www.kawa.net/</a>
+</p>
+
+</body>
+</html>
